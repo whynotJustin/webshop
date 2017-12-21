@@ -61,6 +61,49 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('straat_naam') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">straat naam</label>
+
+                            <div class="col-md-6">
+                                <input id="straat_naam" type="text" class="form-control" name="straat_naam" value="{{ old('straat_name') }}" required>
+
+                                @if ($errors->has('straat_naam'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('straat_naam') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('huisnummer') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">huisnummer</label>
+
+                            <div class="col-md-6">
+                                <input id="huisnummer" type="number" class="form-control" name="huisnummer" value="{{ old('huisnummer') }}" required>
+
+                                @if ($errors->has('huisnummer'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('huisnummer') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">postcode</label>
+
+                            <div class="col-md-6">
+                                <input id="postcode" type="text" class="form-control" name="postcode" value="{{ old('postcode') }}" required>
+
+                                @if ($errors->has('postcode'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('postcode') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

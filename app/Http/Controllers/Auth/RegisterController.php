@@ -51,6 +51,9 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'straat_naame' => 'required|string|max:255',
+            'huisnummer' => 'required|integer',
+            'postcode' => 'required|string|max:6',
         ]);
     }
 
@@ -66,6 +69,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'straat_naam' => $data['straat_naam'],
+            'huisnummer' => $data['huisnummer'],
+            'postcode' => $data['postcode'],
         ]);
     }
 }
