@@ -51,8 +51,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'straat_naame' => 'required|string|max:255',
-            'huisnummer' => 'required|integer',
+            'straat_naam' => 'required|string|max:255',
+            'huisnummer' => 'required|integer|max:999999999',
             'postcode' => 'required|string|max:6',
         ]);
     }

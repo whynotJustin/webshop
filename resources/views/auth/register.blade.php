@@ -62,10 +62,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('straat_naam') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">straat naam</label>
+                            <label for="straat_naam" class="col-md-4 control-label">straat naam</label>
 
                             <div class="col-md-6">
-                                <input id="straat_naam" type="text" class="form-control" name="straat_naam" value="{{ old('straat_name') }}" required>
+                                <input id="straat_naam" type="text" class="form-control" name="straat_naam" value="{{ old('straat_naam') }}" required>
 
                                 @if ($errors->has('straat_naam'))
                                     <span class="help-block">
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('huisnummer') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">huisnummer</label>
+                            <label for="huisnummer" class="col-md-4 control-label">huisnummer</label>
 
                             <div class="col-md-6">
                                 <input id="huisnummer" type="number" class="form-control" name="huisnummer" value="{{ old('huisnummer') }}" required>
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">postcode</label>
+                            <label for="postcode" class="col-md-4 control-label">postcode</label>
 
                             <div class="col-md-6">
                                 <input id="postcode" type="text" class="form-control" name="postcode" value="{{ old('postcode') }}" required>
