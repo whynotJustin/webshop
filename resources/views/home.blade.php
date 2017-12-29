@@ -5,7 +5,6 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -13,8 +12,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    We have this much glass in inventory:
+                    <br>
+                    <br>
+                    <br>
+                    you can order glass here:
+                        <form action="{{asset('PHP/Order.php')}}" METHOD="post">
+                            <input type="number0" name="quantity">
+                            <button type="submit">Order</button>
+                        </form>
                 </div>
             </div>
         </div>

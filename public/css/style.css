@@ -11,6 +11,12 @@ html, body {
     height: 100vh;
 }
 
+.bottom-bar{
+    position: absolute;
+    bottom: 200px;
+
+}
+
 .flex-center {
     align-items: center;
     display: flex;
@@ -32,21 +38,23 @@ html, body {
 }
 
 .title {
-    font-size: 84px;
+    font-size: 90px;
+    font-weight: bold;
+    color: black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .nav {
     position: absolute;
     top: 18px;
-    background-color: black;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+
+
 }
 
 .links > a {
-    color: #636b6f;
+    color: black;
     padding: 0 25px;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: .1rem;
     text-decoration: none;
@@ -54,5 +62,10 @@ html, body {
 }
 
 .m-b-md {
-    margin-bottom: 30px;
+    margin-bottom: 550px;
+}
+
+.background{
+    background: url(/images/achtergrond.png) no-repeat center center;
+    background-size: cover;
 }
