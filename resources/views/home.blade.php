@@ -12,6 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+<<<<<<< HEAD
                     We have this much glass in inventory:
                     <br>
                     <br>
@@ -21,6 +22,13 @@
                             <input type="number0" name="quantity">
                             <button type="submit">Order</button>
                         </form>
+=======
+
+                    You are logged in! <?php
+                        $dbController = new \App\Http\Controllers\databaseController();
+                        $dbController->getStock()?>
+                        <a href="{{ url('/order') }}">order</a>
+>>>>>>> 66ff161d1e9edd3d6a87b161a206b4fcf36cd776
                 </div>
             </div>
         </div>
