@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function order(){
+        return 4;
+        return view('order');
+    }
+
+    public function handleOrder(Request $orderDetail){
+        return view('handleOrder', compact('orderDetail'));
+    }
 }

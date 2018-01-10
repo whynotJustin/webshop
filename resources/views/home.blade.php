@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! <?php
+                        $dbController = new \App\Http\Controllers\databaseController();
+                        $dbController->getStock()?>
+                        <a href="{{ url('/order') }}">order</a>
                 </div>
             </div>
         </div>
