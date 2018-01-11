@@ -11,8 +11,6 @@ use App\Products;
 class databaseController extends Controller
 {
 
-    private function getConnection(){
-        $connection = new PDO("mysql:host=127.0.0.1;dbname=xoutof10glass;", "root","root");
     private function getConnection()
     {
         $connection = new PDO("mysql:host=127.0.0.1;dbname=xoutof10glass;", "root", "root");
@@ -25,6 +23,14 @@ class databaseController extends Controller
         $stmt = $connection->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetch();
+        return $result;
+    }
+
+    private function runQueryFetchAll($sql){
+        $connection = $this->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
         return $result;
     }
 
@@ -60,9 +66,9 @@ class databaseController extends Controller
             $updateOrder->stock = $newStock;
             $updateOrder->save();
 
-            return $order;
+            return view('orderCompleted');
         } else {
-            echo "stock is empty";
+            return view('orderFailed');
         }
 
     }
@@ -70,8 +76,9 @@ class databaseController extends Controller
     public function getOrders()
     {
         $userID = Auth::id();
-        $sql = "SELECT order_date quantity total_price FROM orders WHERE user_id = $userID";
-        $orders = $this->runQuery($sql);
-        return $orders;
+        $order = Order::where('user_id', $userID)->get();
+//        $sql = "SELECT order_date, quantity, total_price FROM orders WHERE user_id = $userID";
+//        $orders = $this->runQueryFetchAll($sql);
+        return $order;
     }
 }

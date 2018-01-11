@@ -21,6 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/order', 'HomeController@order')->name('order');
 
-Route::get('/orders', 'HomeController@orders')->name('orders');
+Route::get('/myOrders', 'HomeController@myOrders')->name('myOrders');
 
 Route::post('/handleOrder', 'databaseController@makeOrder');

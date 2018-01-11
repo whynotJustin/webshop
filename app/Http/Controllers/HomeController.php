@@ -30,8 +30,8 @@ class HomeController extends Controller
         return view('order');
     }
 
-    public function orders(){
-        return view('orders');
+    public function myOrders(){
+        return view('myOrders');
     }
 
     public function handleOrder(Request $orderDetail){
