@@ -24,6 +24,6 @@ class OrderController extends Controller
             'product_id' => $orderDetail['productId'],
         ]);
         $order->save();
-        return $order;
+        return view("handleOrder");
     }
 }

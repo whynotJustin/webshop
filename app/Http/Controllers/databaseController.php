@@ -10,8 +10,6 @@ class databaseController extends Controller
 {
 
     private function getConnection(){
-        $dbPassword = config('DB_PASSWORD');
-        $dbUserName = config('DB_USERNAME');
         $connection = new PDO("mysql:host=127.0.0.1;dbname=xoutof10glass;", "root","root");
         return $connection;
     }

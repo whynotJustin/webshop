@@ -15,24 +15,26 @@
 
                     We have this much screens in inventory:
                         <br>
-                        @php
-                        $screenQuantity = 200;
-                        echo $screenQuantity;
-                        @endphp
-                    <br>
-                        <br>
-                    you can order screens here:
+                    <!--you can order screens here:
                         <form action="{{asset('PHP/Order.php')}}" METHOD="post">
                             <input type="number0" name="quantity">
                             <button type="submit">Order</button>
-                        </form>
+                        </form>-->
 
-                        <!--<?php
+                        <?php
                         $dbController = new \App\Http\Controllers\databaseController();
                         $stock = $dbController->getStock();
                         echo $stock;
                         ?>
-                        <a href="{{ url('/order') }}">order</a>
+                        <br>
+                        <br>
+                        <form method="POST" action="{{url('/handleOrder')}}">
+                            amount: <input type="number" name="amount">
+                            <input type="hidden" name="userId" value="{{Auth::id()}}">
+                            <input type="hidden" name="productId" value="1">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit">Order</button>
+                        </form>
                 </div>
             </div>
         </div>
