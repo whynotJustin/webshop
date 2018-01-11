@@ -15,8 +15,8 @@
 
                     You are logged in! <?php
                         $dbController = new \App\Http\Controllers\databaseController();
-                        $stock = $dbController->getStock()
-                        echo $stock["stock"];
+                        $stock = $dbController->getStock();
+                        echo $stock;
                         ?>
                         <a href="{{ url('/order') }}">order</a>
                 </div>
