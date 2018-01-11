@@ -32,6 +32,10 @@
                         $dbController->getStock()?>
                         <a href="{{ url('/order') }}">order</a>-->
 
+                        $stock = $dbController->getStock()
+                        echo $stock["stock"];
+                        ?>
+                        <a href="{{ url('/order') }}">order</a>
                 </div>
             </div>
         </div>
