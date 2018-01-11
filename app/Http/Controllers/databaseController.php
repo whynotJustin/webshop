@@ -38,7 +38,10 @@ class databaseController extends Controller
         return $price["price"];
     }
 
-    public function addOrder(Request $orderDetail){
-
+    public function getOrders(){
+        $userID = Auth::id();
+        $sql = "SELECT order_date quantity total_price FROM orders WHERE user_id = $userID"
+        $orders = this->runQuery($sql);
+        return $orders;
     }
 }

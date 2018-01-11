@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->double('total_price');
             $table->integer('user_id');
             $table->integer('product_id');
+            $table->timestamps();
         });
     }
 

@@ -12,23 +12,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-<<<<<<< HEAD
-                    We have this much glass in inventory:
-                    <br>
-                    <br>
-                    <br>
-                    you can order glass here:
-                        <form action="{{asset('PHP/Order.php')}}" METHOD="post">
-                            <input type="number0" name="quantity">
-                            <button type="submit">Order</button>
-                        </form>
-=======
 
                     You are logged in! <?php
                         $dbController = new \App\Http\Controllers\databaseController();
-                        $dbController->getStock()?>
+                        $stock = $dbController->getStock()
+                        echo $stock["stock"];
+                        ?>
                         <a href="{{ url('/order') }}">order</a>
->>>>>>> 66ff161d1e9edd3d6a87b161a206b4fcf36cd776
                 </div>
             </div>
         </div>
