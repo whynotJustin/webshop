@@ -13,7 +13,21 @@
                         </div>
                     @endif
 
-                    You are logged in! <?php
+                    We have this much screens in inventory:
+                        <br>
+                        @php
+                        $screenQuantity = 200;
+                        echo $screenQuantity;
+                        @endphp
+                    <br>
+                        <br>
+                    you can order screens here:
+                        <form action="{{asset('PHP/Order.php')}}" METHOD="post">
+                            <input type="number0" name="quantity">
+                            <button type="submit">Order</button>
+                        </form>
+
+                        <!--<?php
                         $dbController = new \App\Http\Controllers\databaseController();
                         $stock = $dbController->getStock();
                         echo $stock;
