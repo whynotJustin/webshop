@@ -10,10 +10,9 @@ class databaseController extends Controller
 {
 
     private function getConnection(){
-        $dsn = "mysql:host=" . $_ENV["DB_HOST"] . ";dbname=" . $_ENV["DB_DATABASE"];
-        $dbPassword = $_ENV["DB_PASSWORD"];
-        $dbUserName = $_ENV["DB_USERNAME"];
-        $connection = new PDO($dsn, $dbUserName, $dbPassword);
+        $dbPassword = config('DB_PASSWORD');
+        $dbUserName = config('DB_USERNAME');
+        $connection = new PDO("mysql:host=127.0.0.1;dbname=xoutof10glass;", "root","root");
         return $connection;
     }
 
