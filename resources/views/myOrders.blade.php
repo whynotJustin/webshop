@@ -14,6 +14,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>Product</th>
                                 <th>Amount</th>
                                 <th>Price</th>
                                 <th>Order date</th>
@@ -23,6 +24,14 @@
                             <?php
                             foreach ($orders as $order) {?>
                             <tr>
+                                <td>
+                                    <?php
+                                    $products = \App\Product::where('id', $order['product_id'])->get();
+                                    foreach ($products as $product) {
+                                        echo $product['product_name'];
+                                    }
+                                    ?>
+                                </td>
                                 <td>
                                     <?php
                                     echo $order['quantity'];

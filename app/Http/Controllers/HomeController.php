@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('order');
     }
 
     public function order(){
@@ -32,9 +32,5 @@ class HomeController extends Controller
 
     public function myOrders(){
         return view('myOrders');
-    }
-
-    public function handleOrder(Request $orderDetail){
-        return view('handleOrder', compact('orderDetail'));
     }
 }

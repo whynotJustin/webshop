@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDO;
 use App\Order;
-use App\Products;
+use App\Product;
 
 class databaseController extends Controller
 {
@@ -26,43 +26,37 @@ class databaseController extends Controller
         return $result;
     }
 
-    private function runQueryFetchAll($sql){
-        $connection = $this->getConnection();
-        $stmt = $connection->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
-    }
-
-    public function getStock()
+    public function getStock($id)
     {
-        $sql = "SELECT stock FROM products WHERE id = 1";
+        $sql = "SELECT stock FROM products WHERE id = $id";
         $stock = $this->runQuery($sql);
         return $stock["stock"];
     }
 
-    public function getPrice()
+    public function getPrice($id)
     {
-        $sql = "SELECT price FROM products WHERE id = 1";
+        $sql = "SELECT price FROM products WHERE id = $id";
         $price = $this->runQuery($sql);
         return $price["price"];
     }
 
     public function makeOrder(Request $orderDetail)
     {
-        if($orderDetail["amount"] <= $this->getStock()) {
+        $productId = $orderDetail['productId'];
+        if($orderDetail["amount"] <= $this->getStock($productId)) {
+
 
             $order = Order::create([
                 'order_date' => date("Y-m-d H:i:s"),
                 'quantity' => $orderDetail['amount'],
-                'total_price' => $orderDetail['amount'] * $this->getPrice(),
+                'total_price' => $orderDetail['amount'] * $this->getPrice($productId),
                 'user_id' => $orderDetail['userId'],
-                'product_id' => $orderDetail['productId'],
+                'product_id' => $productId,
             ]);
             $order->save();
 
-            $newStock = $this->getStock() - $orderDetail["amount"];
-            $updateOrder = Products::find($orderDetail['productId']);
+            $newStock = $this->getStock($productId) - $orderDetail["amount"];
+            $updateOrder = Product::find($orderDetail['productId']);
             $updateOrder->stock = $newStock;
             $updateOrder->save();
 
@@ -77,8 +71,11 @@ class databaseController extends Controller
     {
         $userID = Auth::id();
         $order = Order::where('user_id', $userID)->get();
-//        $sql = "SELECT order_date, quantity, total_price FROM orders WHERE user_id = $userID";
-//        $orders = $this->runQueryFetchAll($sql);
         return $order;
+    }
+
+    public function getProducts(){
+        $products = Product::get();
+        return $products;
     }
 }

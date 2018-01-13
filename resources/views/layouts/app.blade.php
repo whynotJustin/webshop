@@ -55,7 +55,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="home">Order</a></li>
+                                    <li><a href="order">Order</a></li>
                                     <li><a href="myOrders">My orders</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
