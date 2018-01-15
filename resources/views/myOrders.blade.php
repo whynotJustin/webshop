@@ -7,6 +7,7 @@
                 <div class="panel panel-default">
 
                     <div class="panel-body">
+                        <h3 class="text-center">My orders</h3>
                         <?php
                         $dbController = new \App\Http\Controllers\databaseController();
                         $orders = $dbController->getOrders();

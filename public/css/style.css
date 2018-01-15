@@ -66,6 +66,7 @@ html, body {
 }
 
 .background{
-    background: url(/images/achtergrond.png) no-repeat center center;
+    background: url(/webshop/public/images/achtergrond.png) no-repeat center center;
     background-size: cover;
 }
+
