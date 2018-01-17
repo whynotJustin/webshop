@@ -8,6 +8,7 @@
 
                     <div class="panel-body">
                         <h3 class="text-center">My orders</h3>
+                        <hr>
                         <?php
                         $dbController = new \App\Http\Controllers\databaseController();
                         $orders = $dbController->getOrders();

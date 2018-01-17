@@ -60,9 +60,9 @@ class databaseController extends Controller
             $updateOrder->stock = $newStock;
             $updateOrder->save();
 
-            return view('orderCompleted');
+            return redirect("order")->with("success", "your order has been completed, view your orders in the my orders tab");
         } else {
-            return view('orderFailed');
+            return redirect("order")->with("error", "We don't have enough screens in stock, your order was not completed");
         }
 
     }
